@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RegistrationFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('pages.home.index'); }) -> name('home');
+Route::post('/admin', [AdminController::class, 'AdminLogin']) -> name('admin');
+Route::get('registration', [RegistrationFormController::class, 'registrationPage']) -> name('registration');
